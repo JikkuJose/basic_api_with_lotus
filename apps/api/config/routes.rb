@@ -1,1 +1,1 @@
-get '/', to: ->(env) { [200, {}, ['Hello!']] }
+resources :events, only: [:index]
