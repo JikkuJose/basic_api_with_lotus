@@ -4,7 +4,9 @@ module API
   class Application < Lotus::Application
 
     configure do
-      routes 'apps/api/config/routes'
+      root __dir__
+
+      routes 'config/routes'
     end
   end
 end
