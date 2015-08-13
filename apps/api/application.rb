@@ -10,6 +10,8 @@ module API
         'controllers',
       ]
 
+      default_format :json
+
       routes 'config/routes'
     end
   end

@@ -5,8 +5,6 @@ module API::Controllers::Events
     include API::Action
 
     def call(env)
-      self.format = :json
-
       self.body = sample_hash.to_json
     end
 
