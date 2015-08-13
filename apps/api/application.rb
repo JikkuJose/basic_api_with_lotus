@@ -6,6 +6,10 @@ module API
     configure do
       root __dir__
 
+      load_paths << [
+        'controllers',
+      ]
+
       routes 'config/routes'
     end
   end
