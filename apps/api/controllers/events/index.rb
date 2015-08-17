@@ -1,25 +1,26 @@
 require 'json'
+require 'pstore'
+
+DB = './db/store.pstore'
 
 module API::Controllers::Events
   class Index
     include API::Action
 
-    def call(env)
+    def call(params)
       self.body = sample_hash.to_json
     end
 
     def sample_hash
       {
         error: nil,
-        payload: [
-          {
-            id: 1,
-            type: :accident,
-            lattitude: 1.9,
-            longitude: 2.3,
-          }
-        ],
+        payload: all_events,
       }
+    end
+
+    def all_events
+      db = PStore.new(DB)
+      db.transaction { |s| s[:events] }
     end
   end
 end
